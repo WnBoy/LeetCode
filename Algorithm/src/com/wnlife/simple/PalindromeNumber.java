@@ -8,7 +8,7 @@ public class PalindromeNumber {
 
     public static void main(String[] args) {
         PalindromeNumber number = new PalindromeNumber();
-        boolean palindrome = number.isPalindrome(10);
+        boolean palindrome = number.isPalindrome2(121);
         System.out.println(palindrome);
     }
 
@@ -23,5 +23,21 @@ public class PalindromeNumber {
         return sb.toString().equals(Integer.toString(x));
     }
 
-
+    /**
+     * 记录一下
+     * @param x
+     * @return
+     */
+    public boolean isPalindrome2(int x) {
+        if(x==0)return true;
+        if(x<0||x%10==0){
+            return false;
+        }
+        int reverse=0;
+        while(x>reverse){
+            reverse=reverse*10+x%10;
+            x/=10;
+        }
+        return x==reverse||x==reverse/10;
+    }
 }
